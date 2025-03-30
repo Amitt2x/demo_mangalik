@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mangalik Patrika - Digital Wedding Cards</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add preconnect for external resources -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff7f7;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: #ffffff;
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+
+
+/* Add mobile menu styles */
+.mobile-menu {
+  display: none;
+  float: right;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: block;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .nav-links.active {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .nav-links.active a {
+    display: block;
+    margin: 1rem 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.pricing-card {
+  transition: all 0.3s ease;
+}
+.testimonial-card {
+  transition: transform 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.pricing-card:hover {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-color: #c00;
+}
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #c00;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            float: right;
+            margin-top: 0.5rem;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('hero-bg.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            background-color: #c00;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #a00;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 5%;
+            background-color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #c00;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2a2a2a;
+            color: white;
+            padding: 4rem 5%;
+            margin-top: 5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+
+        .social-icons a {
+            color: white;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+        /* Card Customization Demo */
+        .customization-section {
+            padding: 5rem 5%;
+            background-color: #fff9f9;
+        }
+
+        .customization-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .customization-options {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .option-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .card-preview {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transform: rotate(-5deg);
+        }
+
+        /* Pricing Plans */
+        .pricing-section {
+            padding: 5rem 5%;
+            background-color: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid #eee;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #c00;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: #c00;
+            margin: 1rem 0;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 5rem 5%;
+            background-color: #fff7f7;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .client-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .customization-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-preview {
+                transform: rotate(0);
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo">Mangalik Patrika</a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#samples">Samples</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="mobile-menu">
+            <i class="fas fa-bars" id="mobileMenuIcon"></i>
+          </div>
+          
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Create Beautiful Digital Wedding Cards</h1>
+            <p>Traditional charm meets modern convenience</p>
+            <button class="cta-button">Design Your Card Now</button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2 style="text-align: center; font-family: 'Playfair Display'">Our Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-palette feature-icon"></i>
+                <h3>Custom Designs</h3>
+                <p>Personalize every element of your wedding card</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-photo-video feature-icon"></i>
+                <h3>Multimedia Integration</h3>
+                <p>Add photos, videos, and music to your card</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-people-arrows feature-icon"></i>
+                <h3>RSVP Tracking</h3>
+                <p>Manage your guest list and track responses</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-mobile-alt feature-icon"></i>
+                <h3>Multi-Device Friendly</h3>
+                <p>Perfect viewing on all devices</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="customization-section" id="demo">
+        <h2 style="text-align: center; font-family: 'Playfair Display'">Card Customization Demo</h2>
+        <div class="customization-grid">
+            <div class="customization-options">
+                <div class="option-group">
+                    <label>Select Design Template</label>
+                    <select class="form-control" id="designTemplate">
+                        <option>Traditional Red</option>
+                        <option>Modern Minimal</option>
+                        <option>Royal Gold</option>
+                        <option>Floral Theme</option>
+                    </select>
+                </div>
+                <div class="option-group">
+                    <label>Primary Color</label>
+                    <input type="color" id="primaryColor" value="#ff0000">
+                </div>
+                <div class="option-group">
+                    <label>Add Photo</label>
+                    <input type="file" id="couplePhoto">
+                </div>
+                <button class="cta-button" onclick="saveCustomization()">Save Design</button>
+            </div>
+            <div class="card-preview" id="cardPreview">
+                <h3>Sample Card Title</h3>
+                <p>Date: 14 February 2024</p>
+                <p>Venue: Grand Wedding Palace</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="pricing-section" id="pricing">
+        <h2 style="text-align: center; font-family: 'Playfair Display'">Pricing Plans</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Basic</h3>
+                <div class="price">₹999</div>
+                <ul style="text-align: left; list-style: none;">
+                    <li><i class="fas fa-check" style="color: #c00;"></i> Standard Templates</li>
+                    <li><i class="fas fa-check"></i> Basic Customization</li>
+                    <li><i class="fas fa-check"></i> RSVP Tracking</li>
+                    <li><i class="fas fa-times"></i> Video Integration</li>
+                </ul>
+                <button class="cta-button" style="margin-top: 1rem;">Choose Basic</button>
+            </div>
+            <div class="pricing-card" style="border-color: #c00;">
+                <div class="popular-badge">Most Popular</div>
+                <h3>Standard</h3>
+                <div class="price">₹1999</div>
+                <ul style="text-align: left; list-style: none;">
+                    <li><i class="fas fa-check" style="color: #c00;"></i> Premium Templates</li>
+                    <li><i class="fas fa-check"></i> Full Customization</li>
+                    <li><i class="fas fa-check"></i> Video Integration</li>
+                    <li><i class="fas fa-check"></i> Priority Support</li>
+                </ul>
+                <button class="cta-button" style="margin-top: 1rem;">Choose Standard</button>
+            </div>
+            <div class="pricing-card">
+                <h3>Premium</h3>
+                <div class="price">₹2999</div>
+                <ul style="text-align: left; list-style: none;">
+                    <li><i class="fas fa-check" style="color: #c00;"></i> All Standard Features</li>
+                    <li><i class="fas fa-check"></i> Custom Illustration</li>
+                    <li><i class="fas fa-check"></i> Wedding Website</li>
+                    <li><i class="fas fa-check"></i> 24/7 Support</li>
+                </ul>
+                <button class="cta-button" style="margin-top: 1rem;">Choose Premium</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section" id="testimonials">
+        <h2 style="text-align: center; font-family: 'Playfair Display'">Client Testimonials</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Mangalik Patrika made our wedding invitations so special! The digital card was stunning and easy to share."</p>
+                <div class="client-info">
+                    <img src="client1.jpg" alt="Client" class="client-photo">
+                    <div>
+                        <h4>Ananya Sharma</h4>
+                        <p>New Delhi</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"The customization options are amazing! Our guests loved the interactive features in the digital invite."</p>
+                <div class="client-info">
+                    <img src="client2.jpg" alt="Client" class="client-photo">
+                    <div>
+                        <h4>Rahul Mehta</h4>
+                        <p>Mumbai</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Best decision we made! The RSVP tracking helped us manage guests effortlessly."</p>
+                <div class="client-info">
+                    <img src="client3.jpg" alt="Client" class="client-photo">
+                    <div>
+                        <h4>Priya Reddy</h4>
+                        <p>Bangalore</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>Mangalik Patrika</h3>
+                <p>Redefining wedding invitations since 2023</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a><br>
+                <a href="#features">Features</a><br>
+                <a href="#samples">Samples</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>info@mangalikpatrika.com</p>
+                <p>+91 98765 43210</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+        // Basic customization functionality
+        const designTemplate = document.getElementById('designTemplate');
+        const primaryColor = document.getElementById('primaryColor');
+        const cardPreview = document.getElementById('cardPreview');
+
+        designTemplate.addEventListener('change', updatePreview);
+        primaryColor.addEventListener('input', updatePreview);
+
+        function updatePreview() {
+            // Update card design based on selections
+            cardPreview.style.backgroundColor = primaryColor.value;
+            
+            // Add more design changes based on template selection
+            if(designTemplate.value === 'Traditional Red') {
+                cardPreview.style.fontFamily = 'Playfair Display, serif';
+            } else {
+                cardPreview.style.fontFamily = 'Poppins, sans-serif';
+            }
+        }
+
+        function saveCustomization() {
+            alert('Design saved! Proceed to checkout to confirm.');
+        }
+        <div class="mobile-menu">
+  <i class="fas fa-bars" id="mobileMenuIcon"></i>
+</div>
+function updatePreview() {
+  // Existing code
+  // Add template-specific styling
+  switch(designTemplate.value) {
+    case 'Traditional Red':
+      cardPreview.style.backgroundImage = 'linear-gradient(rgba(200,0,0,0.1), rgba(200,0,0,0.1))';
+      break;
+    case 'Modern Minimal':
+      cardPreview.style.backgroundImage = 'none';
+      cardPreview.style.backgroundColor = '#ffffff';
+      break;
+    case 'Royal Gold':
+      cardPreview.style.backgroundImage = 'linear-gradient(rgba(212,175,55,0.1), rgba(212,175,55,0.1))';
+      break;
+  }
+}
+
+// Add image preview functionality
+document.getElementById('couplePhoto').addEventListener('change', function(e) {
+  const reader = new FileReader();
+  reader.onload = function() {
+    const img = document.createElement('img');
+    img.src = reader.result;
+    img.style.maxWidth = '100%';
+    cardPreview.prepend(img);
+  }
+  reader.readAsDataURL(e.target.files[0]);
+});
+    </script>
+</body>
+</html>
